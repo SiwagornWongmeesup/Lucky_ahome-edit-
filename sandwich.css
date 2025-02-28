@@ -1,3 +1,6 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +8,10 @@
     font-family: "Poppins", serif;
 }
 
+body{
+    height: 100%;
+    width: 100%;
+}
 
 :root {
     /* color */
@@ -49,8 +56,24 @@ a{
     text-decoration: none;
 }
 
+button{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img{
+    width: 100%;
+}
+
+.section-content{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+/* navbar styling */
 header{
-    position: fixed; /*จะไม่เลื่อนตามหน้าเว็บเมื่อมีการเลื่อน (scroll) */
     background:var(--primary-color);
     z-index: 5;
     width:100%;
@@ -77,14 +100,6 @@ header .navbar{
 
 .navbar .contro{
     display: flex;
-}
-
-.profile-img{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%; /*ทำให้เป็นวงกลม*/
-    border: 5px solid #1d2210;/* กรอบ */
-    background-color: white;
 }
 
 .navbar .nav-menu{
@@ -146,44 +161,45 @@ header .navbar{
     background: var(--secondary-color); /* เปลี่ยนพื้นหลังเป็นสีม่วง */
 }
 
-.hero-section .hero-details .button{
-    padding: 10px auto;
-    color: var(--dark-color);
-    border-radius: var(--border-radius-m);
-    font-weight: var(--font-weight-medium);
-    border: 10px solid transparent;  /**/
-    transition: 0.4s ease;
-   
-}
 
-.hero-section .hero-details .button:hover{
-    background: var(--secondary-color);
-    color: var(--primary-color);
-    border-color: var(--secondary-color);
-    
 
-}
 
-/* Hero section styling*/
-.hero-section{
+
+
+
+
+
+
+
+
+
+
+/* hero */
+.hero-section {
+    width: 100%;
+    min-height: 100vh; /* ทำให้สูงเต็มจอ */
     background-image: url(photo/S__24019016.jpg);
     background-size: cover; /* ปรับให้รูปเต็มพื้นที่ */
     background-position: center center; /* จัดให้อยู่ตรงกลาง */
     background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
-    height: 55vh; /* ให้ Hero Section สูงเท่ากับขนาดหน้าจอ */
-    width: 100%;
     display: flex;
-    align-items: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวตั้ง */
-    justify-content: center; /* จัดให้เนื้อหาอยู่ตรงกลางแนวนอน */
-   
+    align-items: center; /* จัดตรงกลางแนวตั้ง */
+    justify-content: center; /* จัดตรงกลางแนวนอน */
 }
 
+.hero-details h3{
+    font-size: var(--font-size-xxl);
+    color: #49321f;
+    background:rgb(218, 154, 125);
+}
+/* hero */
 
 .Menu-section{
+    margin-top: 3rem;
     background-color: var(--dark-color);
     color: var(--white-color);
     font-size: var(--font-size-l); 
-    padding: 50px 0;
+    
 }
 
 .section-title{
@@ -199,6 +215,12 @@ header .navbar{
     height: 5px;
     display: block;
     margin: 10px auto 0;
+    transition: width 0.5s ease-in-out;
+}
+
+/* เมื่อ hover ที่หัวข้อ ให้เส้นขยายออก */
+.section-title:hover::after {
+    width: 30%;
 }
 .Menu-section .menu-list{
     display: flex;
@@ -209,12 +231,14 @@ header .navbar{
 }
 /* ทำให้เมนูจัดเรียงเป็นแถวเดียวกัน */
 .Menu-section .menu-list .menu-items{
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: calc(100% / 4 - 110px);
+    width: calc(100% / 3 - 110px);
+    padding-bottom: 2rem;
 }
 
 .Menu-section .menu-list .menu-items .name{
@@ -253,3 +277,161 @@ header .navbar{
     align-items: flex-start;      /*อยุ่ด้านบนสุดของcontainer*/
     justify-content: space-between;
 }
+
+/* Best sell */
+.menu-items {
+    position: relative; /* ทำให้ .best-seller อ้างอิงตำแหน่งจากตรงนี้ */
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.best-seller {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(255, 238, 0);
+    color: rgb(3, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    
+    /* ทำให้เป็นแฉกแบบดาว */
+    clip-path: polygon(
+        50% 0%, 61% 16%, 80% 10%, 85% 30%, 100% 40%, 85% 50%, 
+        100% 60%, 85% 70%, 80% 90%, 61% 84%, 50% 100%, 39% 84%, 
+        20% 90%, 15% 70%, 0% 60%, 15% 50%, 0% 40%, 15% 30%, 
+        20% 10%, 39% 16%
+    );
+}
+
+
+/* footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 3rem;
+}
+
+.footer-top-items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+    justify-content: space-between;
+   
+   
+}
+
+.footer-list img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+
+.footer-opentime {
+    text-align: center; /* จัด h3 และข้อความอยู่ตรงกลาง */
+    margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+}
+
+.footer-opentime h3 {
+    margin-bottom: 15px; /* เพิ่มระยะห่างระหว่างหัวข้อกับข้อความ */
+    font-size: var(--font-size-l);
+}
+
+.footer-opentime p {
+    margin-bottom: 8px; /* เพิ่มระยะห่างระหว่างบรรทัด */
+    font-size: var(--font-size-m);
+}
+
+
+
+
+.social-contact p {
+    font-size: var(--font-size-m);
+    text-align: center;
+}
+
+
+
+/* เปลี่ยนสีเมื่อ hover */
+
+
+.contact-info {
+    display: flex;
+    align-items: center;
+ 
+}
+
+.social-contact{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social-contact h3 {
+    margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+    font-size: var(--font-size-l);
+}
+
+/* ปรับขนาดไอคอน */
+.contact-info-list {
+    list-style: none;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline; /* จัดให้อยู่ตรงกลาง */
+    gap: 10px;
+    padding-left: 80px;
+}
+
+.contact-info a {
+    display: flex;
+    align-items: center; /* จัดไอคอนกับข้อความให้อยู่ตรงกลางแนวตั้ง */
+    gap: 10px; /* เพิ่มระยะห่างระหว่างไอคอนกับข้อความ */
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-info i {
+    font-size: 1.2rem; /* ปรับขนาดไอคอน */
+    color: var(--third-color);
+}
+
+.contact-info a:hover {
+    color: var(--third-color);
+}
+
+.contact-info a:hover i {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
